@@ -1,0 +1,109 @@
+<form [formGroup]="form" (ngSubmit)="submit()" (keypress.enter)="submit()" class="ion-margin">
+
+  <div class="ion-margin-vertical">
+    <ion-item lines="full">
+      <ion-input 
+        formControlName="username" 
+        type="text" 
+        placeholder="Usuario">
+      </ion-input>
+    </ion-item>
+    <ion-text 
+      class="error" 
+      color="danger" 
+      *ngIf="form.controls.username.errors && form.controls.username.touched">
+      <ion-text class="error" *ngIf="form.controls.username.errors?.['required']">
+        * Por favor ingresa un nombre de usuario
+      </ion-text>
+    </ion-text>
+  </div>
+
+  <div class="ion-margin-vertical">
+    <ion-item lines="full">
+      <ion-input 
+        formControlName="email" 
+        type="email" 
+        placeholder="Correo electrónico">
+      </ion-input>
+    </ion-item>
+    <ion-text 
+      class="error" 
+      color="danger" 
+      *ngIf="form.controls.email.errors && form.controls.email.touched">
+      <ion-text class="error" *ngIf="form.controls.email.errors?.['required']">
+        * Por favor ingresa un correo
+      </ion-text>
+      <ion-text class="error" *ngIf="form.controls.email.errors?.['email']">
+        * Por favor ingresa un correo valido
+      </ion-text>
+    </ion-text>
+  </div>
+
+  <div class="ion-margin-vertical">
+    <ion-item lines="full">
+
+      <ion-icon 
+        slot="end" 
+        [name]="type ? 'eye' : 'eye-off'" 
+        color="dark" 
+        (click)="changeType()">
+      </ion-icon>
+
+      <ion-input 
+        formControlName="password" 
+        [type]="type ? 'password' : 'text'" 
+        placeholder="Contraseña">
+      </ion-input>
+
+    </ion-item>
+    <ion-text 
+      color="danger" 
+      *ngIf="form.controls.password.errors && form.controls.password.touched">
+      <ion-text class="error"  *ngIf="form.controls.password.errors?.['required']">
+        * Por favor ingresa tu contraseña
+      </ion-text>
+      <ion-text class="error"  *ngIf="form.controls.password.errors?.['minlength']">
+        * La contraseña debe ser minimo de 8 caracteres
+      </ion-text>
+    </ion-text>
+  </div>
+</form>
+
+<div class="ion-margin-horizontal">
+  <ion-button
+    *ngIf="!isLoading"
+    class="ion-margin-horizontal"
+    size="large" 
+    (click)="submit()" 
+    color="primary" 
+    expand="block" 
+    shape="round" 
+    [disabled]="form.invalid">
+    <ion-text class="buttonText">
+      Crear cuenta
+    </ion-text>
+  </ion-button>
+
+  <ion-button
+    *ngIf="isLoading"
+    class="ion-margin-horizontal"
+    size="large"
+    color="primary" 
+    expand="block" 
+    shape="round" 
+    [disabled]="form.invalid">
+    <ion-text class="buttonText">
+      Crear cuenta
+    </ion-text>
+  </ion-button>
+</div>
+
+<p class="ion-text-center">
+  <ion-text color="medium">O</ion-text>
+</p>
+
+<p class="ion-text-center">
+  <ion-icon name="logo-facebook" color="tertiary"></ion-icon>
+  <ion-icon name="logo-twitter" color="secondary"></ion-icon>
+  <ion-icon name="logo-google" color="danger"></ion-icon>
+</p>

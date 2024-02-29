@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "next-step-a7340"
+  },
+  "targets": {
+    "next-step-a7340": {
+      "hosting": {
+        "app": [
+          "next-step-a7340"
+        ]
+      }
+    }
+  }
+}

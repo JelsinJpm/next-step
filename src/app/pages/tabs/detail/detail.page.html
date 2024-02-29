@@ -1,0 +1,44 @@
+<ion-content [fullscreen]="true">
+  <div class="header">
+    <ion-buttons>
+      <ion-button routerLink="/tabs/home">
+        <ion-icon slot="icon-only" color="light" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons>
+      <ion-button>
+        <ion-icon
+          slot="icon-only"
+          color="light"
+          name="heart-outline"
+        ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </div>
+  
+  <div class="card">
+
+    <div class="image">
+      <ion-img [src]="food.image"></ion-img>
+    </div>
+
+    <div class="card-content">
+      <div class="card-title">
+        <h1 class="ion-no-margin">{{food.name}}</h1>
+        <p class="ion-no-margin"><sup>$</sup>{{food.price|number:'1.3'}}</p>
+      </div>
+    </div>
+
+    <div class="rates">
+      <app-badge icon="time-outline" text="30m"></app-badge>
+      <app-badge icon="star-outline" text="4.5"></app-badge>
+    </div>
+
+    <div class="about">
+      <h1>Descripción</h1>
+      <p>{{food.desc}}</p>
+    </div>
+
+    <app-button (click)="addItemToCart()">Añadir al carrito</app-button>
+  </div>
+</ion-content>

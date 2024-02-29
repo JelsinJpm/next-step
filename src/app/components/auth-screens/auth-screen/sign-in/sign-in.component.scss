@@ -1,0 +1,26 @@
+ion-input, ion-text{
+    font-size: 0.9rem;
+}
+
+.error{
+    font-size: 0.75rem !important;
+}
+
+.buttonText{
+    font-size: 0.9rem;
+}
+
+p{
+    ion-icon{
+        font-size: 1.8rem;
+        margin: 1vh 2vh;
+    }
+}
+
+ion-button{
+    margin: 5vh 0;
+}
+
+ion-modal.inline_modal{
+    --border-radius: 20px;
+}

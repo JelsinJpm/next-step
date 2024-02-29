@@ -1,0 +1,101 @@
+<form [formGroup]="form" (ngSubmit)="submit1()" (keypress.enter)="submit1()" class="ion-margin">
+
+  <div class="ion-margin-vertical">
+    <ion-item lines="full">
+      <ion-input 
+        formControlName="email" 
+        type="email" 
+        placeholder="Correo electrónico">
+      </ion-input>
+    </ion-item>
+    <ion-text 
+      class="error" 
+      color="danger" 
+      *ngIf="form.controls.email.errors && form.controls.email.touched">
+      <ion-text class="error" *ngIf="form.controls.email.errors?.['required']">
+        * Por favor ingresa tu correo
+      </ion-text>
+    </ion-text>
+  </div>
+
+  <div class="ion-margin-vertical">
+    <ion-item lines="full">
+
+      <ion-icon 
+        slot="end" 
+        [name]="type ? 'eye' : 'eye-off'" 
+        color="dark" 
+        (click)="changeType()">
+      </ion-icon>
+
+      <ion-input 
+        formControlName="password" 
+        [type]="type ? 'password' : 'text'" 
+        placeholder="Contraseña">
+      </ion-input>
+
+    </ion-item>
+    <ion-text 
+      color="danger" 
+      *ngIf="form.controls.password.errors && form.controls.password.touched">
+      <ion-text class="error"  *ngIf="form.controls.password.errors?.['required']">
+        * Por favor ingresa tu contraseña
+      </ion-text>
+      <ion-text class="error"  *ngIf="form.controls.password.errors?.['minlength']">
+        * La contraseña debe ser minimo de 8 caracteres
+      </ion-text>
+    </ion-text>
+  </div>
+</form>
+
+<p class="ion-text-right ion-margin-horizontal">
+  <ion-text id="forgot-password" color="medium">¿ Has olvidado tu contraseña ?</ion-text>
+</p>
+
+<div class="ion-margin-horizontal">
+  <ion-button
+  *ngIf="!isLoading"
+    class="ion-margin-horizontal"
+    size="large" 
+    (click)="submit1()" 
+    color="primary" 
+    expand="block" 
+    shape="round" 
+    [disabled]="form.invalid">
+    <ion-text class="buttonText">
+      Iniciar sesión
+    </ion-text>
+  </ion-button>
+  <ion-button
+  *ngIf="isLoading"
+    class="ion-margin-horizontal"
+    size="large" 
+    color="primary" 
+    expand="block" 
+    shape="round" 
+    [disabled]="form.invalid">
+    <ion-spinner class="buttonText">
+      Iniciar sesión
+    </ion-spinner>
+  </ion-button>
+</div>
+
+<p class="ion-text-center">
+  <ion-text color="medium">O</ion-text>
+</p>
+
+<p class="ion-text-center">
+  <ion-icon name="logo-facebook" color="tertiary"></ion-icon>
+  <ion-icon name="logo-twitter" color="secondary"></ion-icon>
+  <ion-icon name="logo-google" color="danger"></ion-icon>
+</p>
+
+<ion-modal
+  trigger="forgot-password"
+  [breakpoints]="[0.1, 0.5, 0.9]"
+  [initialBreakpoint]="0.5"
+  cssClass="inline_modal">
+  <ng-template>
+    <app-reset-password></app-reset-password>
+  </ng-template>
+</ion-modal>

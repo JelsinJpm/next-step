@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{categoryName}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <h1 class="list-header">Mas vendidos</h1>
+  <div class="food-list">
+    <app-food-card *ngFor="let food of foods" [item]="food" (clicked)="goToDetailPage(food.id) "></app-food-card>
+  </div>
+</ion-content>

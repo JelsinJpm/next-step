@@ -1,0 +1,26 @@
+<ion-content [fullscreen]="true">
+
+  <div align="center">
+    <img src="assets/images/logo.png" alt="">
+  </div>
+
+  <ion-list>
+
+    <div class="ion-margin marginButtom" (ionChange)="segmentChanged($event)">
+      <ion-segment mode="ios" [value]="segmentValue" >
+        <ion-segment-button value="1">
+          <ion-label>Iniciar sesión</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="2">
+          <ion-label>Crear cuenta</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+
+    <app-sign-in *ngIf="segmentValue === '1'"></app-sign-in>
+
+    <app-sign-up *ngIf="segmentValue === '2'"></app-sign-up>
+    
+  </ion-list>
+
+</ion-content>

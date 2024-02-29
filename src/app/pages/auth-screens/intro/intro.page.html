@@ -1,0 +1,30 @@
+<ion-content [fullscreen]="true">
+
+  <swiper-container pagination="true" >
+
+    <swiper-slide 
+      class="topRight" 
+      [style.background-image]="'url(assets/images/screen3.png)'">
+      <ion-button fill="clear" color="dark" (click)="goToLogin()">OMITIR</ion-button> 
+    </swiper-slide>
+
+    <swiper-slide 
+      class="topRight" 
+      [style.background-image]="'url(assets/images/screen2.png)'">
+      <ion-button fill="clear" class="buttom" color="dark" (click)="goToLogin()" >OMITIR</ion-button> 
+    </swiper-slide>
+
+    <swiper-slide 
+      [style.background-image]="'url(assets/images/screen1.png)'">
+      <ion-button color="light" shape="round" class="transformButton" (click)="goToLogin()">
+        <ion-text color="primary">
+          <strong>
+            Iniciar ahora
+          </strong>
+        </ion-text>
+      </ion-button> 
+    </swiper-slide>
+
+  </swiper-container>
+  
+</ion-content>
